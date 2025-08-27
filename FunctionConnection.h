@@ -1,6 +1,6 @@
 #ifndef FUNCTIONCONNECTION_H
 #define FUNCTIONCONNECTION_H
 
-void eventRegistration();
+void EventRegistration();
 
 #endif
