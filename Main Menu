@@ -1,24 +1,47 @@
 #include<iostream>
+#include <iomanip>
 #include<string>
-#include<iomanip>
+#include<sstream>
+#include<regex>
+#include "FunctionConnection.h"
 
 using namespace std;
 
-struct eventRegistrationNeeded {
-	string eventType;
-	int date;
-	int time;
-	string desiredVenue;
-	bool stateOfEvent;//pending or approve or cancel
-};
-
-void EventRegistration() {
-	
+int main() {
+	string userChoice;
+	bool validationInput = true;
 	do {
 		system("CLS");
 		cout << setfill('-') << setw(50) << "-" << endl;
 		cout << "Welcome to Hotel Events Registration Funciton" << endl;
 		cout << setfill('-') << setw(50) << "-" << endl;
 
+		cout << "1. Event Registration" << endl;
+		cout << "0. Exit(press 0 to exit)" << endl;
+
+		if (!validationInput) {
+			cout << "Invalid Input. Please try again. " << endl;
+			validationInput = true;//need to return back, if no will crash
+		}
+		cout << "Enter your choice:";
+		getline(cin, userChoice);
+
+		//Event Registration
+		if (userChoice == "1") {
+			EventRegistration();
+		}
+
+		//Exit
+		else if (userChoice == "0") {
+			system("CLS");
+			cout << "Thanks For Using" << endl;
+			return 0;
+		}
+
+		//wrong input
+		else {
+			validationInput = false;
+		}
 	} while (true);
+	return 0;
 }
